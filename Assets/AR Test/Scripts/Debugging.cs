@@ -8,7 +8,7 @@ public class Debugging : MonoBehaviour
     [SerializeField] GameObject model;
     [SerializeField] ImageTargetBehaviour target;
 
-    public SkinnedMeshRenderer[] _modelRenderers;
+    SkinnedMeshRenderer[] _modelRenderers;
     float _dissolve = 1;
 
     // Start is called before the first frame update
@@ -24,8 +24,8 @@ public class Debugging : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        model.transform.position = Vector3.Lerp(model.transform.position, target.transform.position, Time.deltaTime);
-        model.transform.rotation = Quaternion.Lerp(model.transform.rotation, target.transform.rotation, Time.deltaTime);
+        model.transform.position = Vector3.Lerp(model.transform.position, target.transform.position, Time.deltaTime * 2);
+        model.transform.rotation = Quaternion.Lerp(model.transform.rotation, target.transform.rotation, Time.deltaTime * .5f);
     }
 
     public void TrackIn()
